@@ -35,7 +35,7 @@ export default function ImportSettingsPage() {
 
   // State
   const [modelJson, setModelJson] = useState<ImportAIModelModel | null>(null);
-  const [errorKey, setErrorKey] = useState<string>("");
+  const [errorKey, setErrorKey] = useState<"error.parse-failed" | null>(null);
   const [isImported, setIsImported] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -239,7 +239,9 @@ export default function ImportSettingsPage() {
           <Alert className="mt-4" variant="destructive">
             <AlertCircle className="h-4 w-4" />
             <AlertTitle>{t("confirm.alert.title")}</AlertTitle>
-            <AlertDescription>{t("confirm.alert.description")}</AlertDescription>
+            <AlertDescription>
+              {t("confirm.alert.description")}
+            </AlertDescription>
           </Alert>
         </CardContent>
 
